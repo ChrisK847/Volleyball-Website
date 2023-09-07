@@ -1,0 +1,2325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!--*******************************************************-->
+<!--************************HEAD***************************-->
+<!--*******************************************************-->
+<head>
+
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <title>User Profile</title>
+
+  <style>
+
+    /* { border: 1px solid black; } */
+
+    html {background-color: transparent;}
+    body {
+      background-color: transparent;
+      background-image: url('file:///C:/Users/cjohn/Desktop/Game_Shortcuts/Javascript_Local/Volleyball-Sign-up/Images/Volleyball-Court-800x600.jpg');
+      background-repeat:no-repeat;
+      background-attachment:fixed;
+      background-size:cover;
+      height:100vh;
+      width:100vh;
+      margin:0;
+      display:inline-block;
+    }
+
+
+  .content-box {
+    margin-top: 20px;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    height: fit-content;
+    display: inline-block;
+    background-color:white;
+    opacity:1;
+    position:absolute;
+    top:80px;
+    left:50%;
+    transform:translate(-50%,-80px);
+    border: 5px solid rgba(150, 0, 150, .10);
+    /*overflow:hidden;*/
+    z-index:1;
+  }
+
+  .quick-links-row {
+    min-height:30px;
+    height:fit-content;
+    text-align:center;  /*Centers block of columns*/
+    background-color:rgba(32.5, 28.6, 255, .30);
+  }
+
+  .quick-link-columns {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    width: fit-content;
+    margin-left: .67em;
+    margin-right: .67em;
+    height: 30px;
+    border: none; 
+    color:blue;
+    cursor:pointer;
+  }
+
+   h1{
+     font-size:40px; 
+     color: black;
+     text-align: center; 
+     margin:0;
+     padding-top:10px;
+     padding-bottom:10px;
+     border-top:5px solid rgba(0, 0, 0, .25);
+     border-bottom:5px solid rgba(0, 0, 0, .25);
+   }
+
+   h2{
+     font-size:20px;
+     text-align: center;
+     padding-top:5px;
+     padding-bottom:5px;
+     margin:0px;
+     color:DimGray;
+   }
+
+  .settings-tab-row {
+    min-height:30px;
+    height:fit-content;
+    text-align:center;
+    /*background-color:rgba(32.5, 28.6, 255, .30);*/
+  }
+
+  .tab {
+    width: fit-content;
+    padding: 0px;
+    margin-left: .67em;
+    margin-right: .67em;
+    padding-top: 4px;
+    height: 100%;
+    display: inline-block;
+    border: none; 
+    color:blue;
+    cursor:pointer;
+    background-color: rgba(0,0,0,0.0);
+  }
+
+  .tabSelected {
+    width: fit-content;
+    padding: 0px;
+    margin-left: .67em;
+    margin-right: .67em;
+    padding-top: 4px;
+    height: 100%;
+    display: inline-block;
+    border: 1px solid rgb(0,0,0,.25); 
+    color:blue;
+    cursor:pointer;
+    background-color: rgba(0,0,0,0.1);
+  }
+
+   .form{
+     display: flex; /*block*/
+     flex-direction:column;
+     height: fit-content;
+     border-top: 5px solid rgba(0, 0, 0, .25);
+     padding-top:10px;
+     padding-left:10px;
+     /*background-color: rgba(255,0,0,.10);*/
+   }
+
+   .formRow{
+     display: flex;
+     flex-direction:row;
+     align-items:start;
+     position: relative;
+     margin-bottom: 5px;
+     height: fit-content;
+     width: calc(100% - 10px);
+     /*border-top: 3px outset rgba(0,0,0,.25);*/
+     background-color: rgba(0,0,255,.1);
+   }
+
+   
+   label {
+     display: inline-block;
+     width: 90px;
+     float: none;
+     padding:5px;
+   }
+
+   .firstColumnLabel {
+     display: inline-block;
+     width: 90px;
+     float: none;
+     padding:5px;    
+   }
+
+   .text-field, .password-field, .grids, .radio-control{
+     display: inline-block;
+     width:200px;
+     margin:5px;
+     padding:5px;
+     border:1px solid rgb(0,0,0,.25);
+     background-color: rgba(255,255,255,1);
+   }
+
+   .address-grid{
+     display:grid;
+     width:240px;
+     margin:5px;
+     padding:5px;
+     border:1px solid rgb(0,0,0,.25);
+     background-color: rgba(255,255,255,1);
+   }
+
+   .address-field {
+     display: inline-block;
+     height:20px;
+     width:220px;
+     margin:3px;
+     padding-right:3px;
+     padding-left:3px;
+     border:1px solid rgb(0,0,0,.25);
+     background-color: rgba(255,255,255,1);
+   }
+
+
+  select{
+     display: inline-block;
+     min-width:208px;
+     max-width:246px;
+     margin:5px;
+     padding:3px;
+     border:1px solid rgb(0,0,0,.25);
+  }
+
+   #cost-field:focus{
+     outline:none;
+   }
+
+   #outer-cost-field{
+     display:grid;
+     grid-template-columns: 8px 192px;
+     margin-top:5px;
+     margin-left:5px;
+     margin-right:1px;
+     padding-left:3px;
+     padding-right:3px;
+     border:1px solid rgba(0,0,0,.5);
+     background-color: rgba(255,255,255,1);
+   }
+
+   #cost-field{
+     display:inline-block;
+     border: none;
+     width:100px;
+     padding-left:2px;
+     padding-right:4px;
+     margin-left:0px;
+     margin-right:0px;
+   }
+
+
+   .afterLabel {
+     display:inline-block;
+     width: 150px;
+     margin: 5px;
+     color:rgba(0,0,0,.5);
+   }
+
+   .save-button{
+     display:inline-block;
+     width:40px;
+     height:22px;
+     position:relative;
+   }
+
+   .save-button:disabled{
+     background: #ccc;
+   }
+
+   p {color: black;}
+   br {display: block; margin: 7px 0;}
+
+
+  </style>
+ 
+  <!--
+    Sources:
+      https://api.jqueryui.com/datepicker/
+
+   -->
+
+</head>
+<!--*******************************************************-->
+<!--************************HEAD***************************-->
+<!--*******************************************************-->
+
+
+
+
+
+<!--*******************************************************-->
+<!--*************************BODY**************************-->
+<!--*******************************************************-->
+<body
+  id="body"
+  style=""
+>
+
+
+  <!--CONTENT-BOX-->
+  <div 
+    class="content-box"
+    id="content-box"
+  >
+
+
+      <!--*******************************************************-->
+      <!--*******************QUICK LINKS ROW*********************-->
+      <!--*******************************************************-->
+      <div class="quick-links-row">
+        
+
+        <!--**Main Page**-->
+        <div 
+          class="quick-link-columns" 
+          id="main-page">
+         <u>Main Page</u>
+        </div>
+
+        <!--**UPCOMING GAMES**-->
+        <div
+          class="quick-link-columns" 
+          onClick="showHide('','')">
+         <u>Upcoming Games</u>
+        </div>
+
+
+        <!--**PARKS**-->
+        <div 
+          class="quick-link-columns" 
+          onClick="showHide('listOfParks','id')"
+          id="parksQuickLink" 
+          name="parksQuickLink">
+          <u>Parks</u>
+        </div>
+
+
+        <!--**DISCLAIMER**-->
+        <div 
+          class="quick-link-columns">
+          <u>Disclaimer</u>
+        </div>
+
+
+        <!--**SIGN-OUT**-->
+        <div
+          class="quick-link-columns"
+          id="sign-out"
+        >
+          <u>Sign-Out</u>
+        </div>
+
+      </div>
+      <!--*******************************************************-->
+      <!--*******************QUICK LINKS ROW*********************-->
+      <!--*******************************************************-->
+
+
+      <!--*******************************************************-->
+      <!--*******************PAGE HEADING************************-->
+      <!--*******************************************************-->
+
+      <div style="vertical-align:middle;">
+        <h1>Beach Volleyball of South Florida</h1>
+        <h2 id="h2" name="h2">User Profile Settings</h2>
+    
+        <!--TABS-->
+        <div
+          class="settings-tab-row"
+          id="settings-tab-row"
+        >
+          <div id="profile-settings-header" class="tab">
+            PROFILE
+          </div>
+          <div id="game-settings-header" class="tab">
+            GAME
+          </div>
+          <div id="park-settings-header" class="tab">
+            LOCATION
+          </div>
+          <div id="host-settings-header" class="tab">
+            HOST
+          </div>
+
+        </div><!--TABS-->
+      </div>
+
+
+
+
+      <!--*******************************************************-->
+      <!--**********************FORM*****************************-->
+      <!--*******************************************************-->
+      <div class="form">
+
+ 
+        <!--**Nickname**-->
+        <div class="formRow" name="profile-settings-group">
+          <label for="nickname" class="1stColumnLabel">Nickname</label>
+            <input 
+              type="text" 
+              class="text-field"
+              id="nickname"
+              data-dependent="false"
+              maxLength="30"
+              oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+              placeholder="Nickname">
+          <div class="afterLabel">Required</div>
+        </div>
+        <!--**Nickname**-->
+
+
+
+        <!--**First Name**-->
+        <div class="formRow" name="profile-settings-group">
+          <label for="first-name" class="1stColumnLabel">First Name</label>
+            <input
+              type="text"
+              class="text-field"
+              id="first-name"
+              data-dependent="false"
+              maxlength="30"
+              oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+              placeholder="First Name">
+          <div class="afterLabel">Optional</div>
+        </div>
+        <!--**First Name**-->
+
+
+
+        <!--**Last Name**-->
+        <div class="formRow" name="profile-settings-group">
+          <label for="last-name" class="1stColumnLabel">Last Name</label>
+            <input 
+              type="text" 
+              class="text-field"
+              id="last-name"
+              data-dependent="false"
+              maxLength="30"
+              oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+              placeholder="Last Name">
+          <div class="afterLabel">Optional</div>
+        </div>
+        <!--**Last Name**-->
+
+
+
+        <!--**Password**-->
+        <div class="formRow" name="profile-settings-group">
+          <label for="password" class="1stColumnLabel">Password</label>
+          <input 
+              type="password" 
+              class="password-field"
+              id="password"
+              data-dependent="false"
+              maxLength="32"
+              minLength="8"
+              oninput="javascript: 
+                         if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+              placeholder="Password">
+          <div class="afterLabel" id="passwordAfterLabel">8-16 characters in length, 1 capital, 1 special character</div>
+        </div>
+        <!--**Password**-->
+
+
+
+        <!--**Email**-->
+        <div id="email-row" class="formRow" name="profile-settings-group">
+          <label for="Email" class="1stColumnLabel">Email</label>
+            <input 
+              type="text" 
+              class="text-field"
+              id="email"
+              data-dependent="false"
+              maxLength="50"
+              oninput="javascript: EmailFunctions(this);"
+              placeholder="Email">
+          <div class="afterLabel">Required</div>
+        </div>
+        <!--**Email**-->
+
+
+
+
+        <!--**EMAIL PRIVACY**-->
+        <div class="formRow"
+             id="email-privacy"
+             style="display:none"
+             name="profile-settings-group"
+             data-dependent="true"
+          
+           
+          <!--COLUMN 1-->
+          <label>Email Privacy</label>
+      
+
+          <!--COLUMN 2-->
+          <div class="grids"
+               style="display:grid;
+                      grid-template-rows: 30px 30px 30px 30px;
+                      ">
+
+              <!--PRIVATE-->
+                <div style="display:inline; text-align:left;">
+                <label for="private-email" style="width:40px; text-align:right; display:inline;">Private</label>
+                  <input 
+                    class="radio-control"
+                    type="radio" 
+                    id="private-email"
+                    name="email-privacy-radio"
+                    value="Only you and web-admins can see this."
+                    style="width:auto;
+                      padding-right:0px;
+                      margin-left:0px;
+                      float:none;">
+                  </input>
+                </div><!--PRIVATE-->
+
+
+
+                <!--HOST ONLY-->
+                <div style="display:inline; text-align:left;">
+                  <label for="host-only-email" style="width:40px; text-align:right; display:inline;">Host-only</label>
+                    <input 
+                      class="radio-control"
+                      type="radio" 
+                      id="host-only-email"
+                      name="email-privacy-radio"
+                      value="You, Web-admins, and hosts to games that you are RSVP'd to can see this."
+                      style="width:auto;
+                             padding-right:0px;
+                             margin-left:0px;
+                             float:none;">
+                    </input>
+                </div><!--HOST ONLY-->
+
+
+
+                <!--TEAMMATES ONLY-->
+                <div style="display:inline; text-align:left;">
+                  <label for="teammates-only-email" style="width:40px; text-align:right; display:inline;">Teammates-only</label>
+                    <input 
+                      class="radio-control"
+                      type="radio" 
+                      id="teammates-only-email"
+                      name="email-privacy-radio"
+                      value="You, Web-admins, and hosts and teammates of games your are RSVP'd to can see this."
+                      style="width:auto;
+                             padding-right:0px;
+                             margin-left:0px;
+                             float:none;">
+                    </input>
+                </div><!--TEAMMATES ONLY-->
+
+
+ 
+              <!--PUBLIC EMAIL-->
+                <div style="display:inline; height:auto">
+                  <label for="public-email" style="text-align:right; display: inline;">Public</label>
+                  <input 
+                    class="radio-control"
+                    type="radio" 
+                    id="public-email"
+                    name="email-privacy-radio"
+                    value="WARNING: Anyone on the internet can see this."
+                    style="width:auto;
+                           padding:0px;
+                           margin-left:0px;
+                           float:none;">
+                  </input>
+                </div><!--PUBLIC-->
+
+
+
+              </div><!--CONTAINER FOR MIDDLE COLUMN-->
+
+
+              <!--THIRD COLUMN-->
+              <div class="afterLabel" 
+                   id="email-privacy-after-text"
+                   >
+               </div>
+        
+          </div><!--**EMAIL PRIVACY**-->
+
+
+
+        <!--**EMAIL NOTIFICATIONS?**-->
+        <div id="email-notifications-row" name="profile-settings-group" class="formRow"  data-dependent="true" style="display:none;">
+          <label 
+                 for="email-notifications"
+                 style="position: relative;
+                        height: 40px;"
+          >Email Notifications
+          </label>
+            <select id="email-notifications"
+                    multiple
+                    class="select-control"
+            >
+            </select>
+          <div class="afterLabel">Select Multiple.</div>
+        </div>
+        <!--**EMAIL NOTIFICATIONS?**-->
+
+
+
+        <!--**Phone Number**-->
+        <div class="formRow" name="profile-settings-group">
+          <label for="phone-number">Phone Number</label>
+            <input
+              type="text" 
+              class="text-field"
+              id="phone-number"
+              data-dependent="false"
+              placeholder="Phone Number"
+              maxlength="11"
+              oninput="javascript: PhoneNumberFunctions(this);"
+              onkeypress="return isNumberKey(event)">
+          <div class="afterLabel">Optional</div>
+        </div>
+        <!--**Phone Number**-->
+
+
+
+        <!--**PHONE NUMBER PRIVACY**-->
+        <div class="formRow"
+             id="phone-number-privacy"
+             name="profile-settings-group"
+             data-dependent="true"
+             style="display:none"
+
+
+          <!--COLUMN 1-->
+          <label>Phone Number Privacy</label>
+      
+
+          <!--COLUMN 2-->
+          <div class="grids"
+               style="display:grid;
+                      grid-template-rows: 30px 30px 30px 30px;
+                      ">
+
+
+
+              <!--PRIVATE-->
+                <div style="display:inline; text-align:left;">
+                <label for="private" style="width:40px; text-align:right; display:inline;">Private</label>
+                  <input 
+                    type="radio" 
+                    id="private-phone"
+                    class="radio-control"
+                    name="phone-number-privacy-radio"
+                    value="Only you and web-admins can see this."
+                    style="width:auto;
+                      padding-right:0px;
+                      margin-left:0px;
+                      float:none;">
+                  </input>
+                </div><!--PRIVATE-->
+
+
+
+                <!--HOST ONLY-->
+                <div style="display:inline; text-align:left;">
+                  <label for="host-only" style="width:40px; text-align:right; display:inline;">Host-only</label>
+                    <input 
+                      type="radio" 
+                      id="host-only-phone"
+                      class="radio-control"
+                      name="phone-number-privacy-radio"
+                      value="You, Web-admins, and hosts to games that you are RSVP'd to can see this."
+                      style="width:auto;
+                             padding-right:0px;
+                             margin-left:0px;
+                             float:none;">
+                    </input>
+                </div><!--HOST ONLY-->
+
+
+
+                <!--TEAMMATES ONLY-->
+                <div style="display:inline; text-align:left;">
+                  <label for="teammates-only" style="width:40px; text-align:right; display:inline;">Teammates-only</label>
+                    <input 
+                      type="radio" 
+                      id="teammates-only-phone"
+                      class="radio-control"
+                      name="phone-number-privacy-radio"
+                      value="You, Web-admins, and hosts and teammates of games you are RSVP'd to can see this."
+                      style="width:auto;
+                             padding-right:0px;
+                             margin-left:0px;
+                             float:none;">
+                    </input>
+                </div><!--TEAMMATES ONLY-->
+
+
+ 
+              <!--PUBLIC-->
+                <div style="display:inline; height:auto">
+                  <label for="public" style="text-align:right; display: inline;">Public</label>
+                  <input 
+                    type="radio" 
+                    id="public-phone"
+                    class="radio-control"
+                    name="phone-number-privacy-radio"
+                    value="WARNING: Anyone on the internet can see this."
+                    style="width:auto;
+                           padding:0px;
+                           margin-left:0px;
+                           float:none;">
+                  </input>
+                </div><!--PUBLIC-->
+
+
+
+              </div><!--CONTAINER FOR MIDDLE COLUMN-->
+
+
+              <!--THIRD COLUMN-->
+              <div class="afterLabel" 
+                   id="phone-number-privacy-after-text" 
+                   >
+               </div>
+        
+          </div><!--**PHONE NUMBER PRIVACY**-->
+
+
+
+
+        <!--SEX-->
+        <div class="formRow" 
+             name="profile-settings-group" 
+             id="sex-row" 
+             data-dependent="false">
+          
+          <!--Column 1-->
+          <label>Sex</label>
+          
+          
+          <!--Column 2-->
+          <div class="grids"
+               style="display:grid;
+                      grid-template-rows: 30px 30px;">
+
+            <!--male-->
+            <div style="display:inline; text-align:left;">
+              <label for="male" style="text-align:right; display: inline;">Male</label>
+            <input
+              type="radio"
+              id="male"
+              class="radio-control"
+              value="Male"
+              name="sex"
+              style="width:auto;
+                     padding:0px;
+                     margin-left:0px;"
+              onclick="javascript: GenerateCOEDList();"
+             ></input>       
+          </div>
+
+
+            <!--female-->
+            <div style="display:inline; text-align:left;">
+              <label for="female" style="text-align:right; display: inline; margin-left:1px;">Female</label>
+            <input
+              type="radio"
+              id="female"
+              class="radio-control"
+              value="Female"
+              name="sex"
+              style="width:auto;
+                     padding:0px;
+                     margin-left:0px;
+                     float:none;"
+              onclick="javascript: GenerateCOEDList();"
+             ></input>       
+          </div>
+
+
+            <!--Choose not to specify-->
+            <div style="display:inline; text-align:left;">
+              <label for="other" style="text-align:right; display: inline; margin-left:1px;">Choose not to specify</label>
+            <input
+              type="radio"
+              id="other"
+              class="radio-control"
+              value="Other"
+              name="sex"
+              style="width:auto;
+                     padding:0px;
+                     margin-left:0px;
+                     float:none;"
+              onclick="javascript: GenerateCOEDList();"
+             ></input>       
+          </div>
+
+
+
+
+        </div>
+
+          <!--afterlabel-->
+          <div class="afterLabel">
+            Required. If you choose not to specify, you will only be able to play in co-ed leagues.
+          </div>
+
+      </div><!--SEX-->
+
+
+
+
+        <!--**Home Address**-->
+        <div class="formRow" name="park-settings-group" id="home-address-row" data-dependent="false">
+
+          <!--COLUMN 1-->
+          <label>Your Address, City, Zip, or Intersection</label>
+
+          <!--COLUMN 2-->
+          <div class="address-grid">
+
+            <label for="home-address" style="width:120px;">Home Address</label>
+            <input 
+              type="text" 
+              class="address-field"
+              id="home-address"
+              data-dependent="false"
+              maxLength="60"
+              oninput="javascript: HomeAddressFunctions(this);"
+              placeholder="Street Address">
+
+            <input
+              type="text" 
+              class="address-field"
+              id="city"
+              data-dependent="false"
+              maxLength="60"
+              oninput="javascript: HomeAddressFunctions(this);"
+              placeholder="City">
+
+            <input
+              type="text" 
+              class="address-field"
+              id="state"
+              data-dependent="false"
+              maxLength="60"
+              oninput="javascript: HomeAddressFunctions(this);"
+              placeholder="State"
+              value="Florida"
+              style="display:none;">
+
+            <br>
+
+
+            <label for="zip-code" style="width:120px;">Zip Code</label>
+            <input
+              type="text" 
+              class="address-field"
+              id="zip-code"
+              data-dependent="false"
+              maxLength="100"
+              oninput="javascript: HomeAddressFunctions(this);"
+              placeholder="Zip Code">
+
+            <br>
+
+            <label for="cross-street1" style="width:120px;">Cross Streets</label>
+            <input
+              type="text" 
+              class="address-field"
+              id="cross-street1"
+              data-dependent="false"
+              maxLength="100"
+              oninput="javascript: HomeAddressFunctions(this);"
+              placeholder="Cross Street 1">
+
+            <input
+              type="text" 
+              class="address-field"
+              id="cross-street2"
+              data-dependent="false"
+              maxLength="100"
+              oninput="javascript: HomeAddressFunctions(this);"
+              placeholder="Cross Street 2">
+
+          </div>
+
+          <!--COLUMN 3-->
+          <div class="afterLabel">Optional: Used in conjunction with Distance Preference to filter parks and games within your desired range. You can choose any of the 3 starting locations that you prefer. Note, for extra security measures, you don't need your actual home address in there, you can use a nearby address. </div>
+        </div>
+        <!--**Home Address**-->
+
+
+
+        <!--**Distance Preferences**-->
+        <div class="formRow" name="park-settings-group" id="distance-preference-row" style="display:none" data-dependent="true">
+          <label>Distance Preference in Miles</label>
+            <input 
+              type="text" 
+              class="text-field"
+              id="distance-preference"
+              maxLength="4"
+              oninput="javascript: 
+                         if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+              placeholder="distance-preference mi">
+          <div class="afterLabel">Distance from Home Address. Used to filter for parks within your area.</div>
+        </div>
+        <!--**Distance Preferences**-->
+
+
+        <!--**Indoor-Outdoor-Preference**-->
+        <div class="formRow" name="park-settings-group"  data-dependent="false">
+          <label for="indoor-outdoor-preference"
+                 style="position: relative;
+                        height: 40px;"
+          >Indoor-Outdoor Preference
+          </label>
+            <select id="indoor-outdoor-preference"
+                    multiple
+                    class="select-control"
+                    style="overflow:hidden;"
+                    size="2"
+            >
+            </select>
+          <div class="afterLabel">Select both if you are open to playing both indoor or outdoor volleyball.</div>
+        </div>
+        <!--**Indoor-Outdoor Preference**-->
+
+
+
+        <!--**Park Preferences**-->
+        <div class="formRow" name="park-settings-group"  data-dependent="false">
+          <label for="park-preferences">
+                 Park Preferences
+            
+            <label for="select-all-parks"
+                   style="margin-top:15px;
+                          margin-left:15px;
+                          font-size:14px"
+            >Select All
+              <input id="select-all-parks"
+                    style="
+                    "
+                    type="checkbox"
+                    class="checkbox-control"
+              >
+            </label>
+          </label>
+            
+          <select id="park-preferences" 
+                      multiple
+                      class="select-control"
+                      size="5"
+          >
+            <option></option>
+          </select>
+          
+          <div class="afterLabel">Filter games for only these parks. Select multiple. Defaults to all parks within your distance preference.</div>
+        </div>
+        <!--**Park Preferences**-->
+
+
+<!--**TURF?**-->
+        <div class="formRow" name="park-settings-group"  data-dependent="false">
+          <label
+                 for="turf"
+                 style="position: relative;
+                        height: 40px;"
+          >Turf Preferences?
+
+            <label for="select-all-turf"
+                   style="padding-top:15px;
+                          padding-left:15px;
+                          font-size:14px"
+            >Select All
+              <input id="select-all-turf"
+                    type="checkbox"
+                    class="checkbox-control"
+                    size="5"
+              >
+            </label>
+          </label>
+            <select class="select-control"
+                    id="turf"
+                    multiple
+                    size="5">
+            </select>
+          <div class="afterLabel">Select Multiple.</div>
+        </div><!--**TURF?**-->
+
+
+
+        <!--**Cost Preference?**-->
+        <div class="formRow" name="park-settings-group"  data-dependent="false">
+          <label 
+                 for="cost-preference"
+                 style="position:relative;
+                        height:40px;"
+          >Cost Preference?
+          </label>
+            <span class=""
+                  id="outer-cost-field"
+                  onclick="javascript: SelectCostField(this);" 
+            >
+              $<input
+                type="text"
+                class=""
+                id="cost-field"
+                maxLength="3"
+                oninput="javascript: 
+                         if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                onkeypress="return isNumberKey(event)"
+                onfocus="javascript: CostFieldOnFocus();"
+                onblur="javascript: CostFieldOnBlur();"
+                placeholder="0">
+            </span>
+          <div class="afterLabel">What is the most you would pay to play? Note: Private Courts may charge, so this may open up more options for you to play.</div>
+        </div>
+        <!--**Cost Preference?**-->
+
+
+        <!--**Team-Size-Preference**-->
+        <div class="formRow" name="game-settings-group"  data-dependent="false">
+          <label for="team-size-preference"
+                 style="position: relative;
+                        height: 40px;"
+          >Team-Size Preference
+          </label>
+            <select id="team-size-preference"
+                    multiple
+                    class="select-control"
+                    size="5"
+            >
+            </select>
+          <div class="afterLabel">How many people do you prefer to be on your team? Select multiple.</div>
+        </div>
+        <!--**Team-Size Preference**-->
+
+
+
+        <!--**CO-ED**-->
+        <div class="formRow" 
+             name="game-settings-group"  
+             data-dependent="false">
+
+          <!--Column 1-->
+          <label for="CO-ED"
+                 style="position: relative;
+                        height: 40px;"
+          >CO-ED?
+          </label>
+            <select id="CO-ED"
+                    class="select-control"
+                    size="3"
+            >
+            </select>
+          <div class="afterLabel">Will you play CO-ED, or only with males or only females?</div>
+        </div>
+        <!--**CO-ED**-->
+
+
+
+        <!--**Player Skill-level**-->
+        <div class="formRow" name="game-settings-group"  data-dependent="false">
+          <label for="player-skill-level">Skill-Level</label>
+            <select id="player-skill-level"
+                    class="select-control"
+                    
+            >
+            </select>
+          <div class="afterLabel">You may be filtered against your skill-level Defaults to Beginner. If you don't know, keep it at Beginner.</div>
+        </div>
+        <!--**Player Skill-level**-->
+
+
+
+        <!--**Opponent Skill-level**-->
+        <div class="formRow" name="game-settings-group"  data-dependent="false">
+          <label for="opponent-skill-level"
+                 style="position: relative;
+                        height: 40px;"
+          >Opponent-Skill-Level
+          </label>
+            <select id="opponent-skill-level"
+                    multiple
+                    class="select-control"
+                    size="5"
+            >
+            </select>
+          <div class="afterLabel">Filter opponents by skill-level. Select Multiple.</div>
+        </div>
+        <!--**Opponent Skill-level**-->
+
+
+
+        <!--**Team Skill-level**-->
+        <div class="formRow" name="game-settings-group"  data-dependent="false">
+          <label for="team-skill-level"
+                 style="position: relative;
+                        height: 40px;"
+          >Team-Skill-Level
+          </label>
+            <select id="team-skill-level"
+                    multiple
+                    class="select-control"
+                    size="5"
+            >
+            </select>
+          <div class="afterLabel">What skill-level of players do you want on your team? Select Multiple.</div>
+        </div>
+        <!--**Team Skill-level**-->
+
+
+
+        <!--**UNEVEN TEAMS**-->
+        <div class="formRow"
+          name="game-settings-group"
+          data-dependent="false"
+
+
+          <!--Column 1-->
+          <label>Uneven Teams</label>
+          
+
+          <!--Column 2-->
+          <div class="grids"
+               style="display:grid;
+                      grid-template-rows: 30px 30px;">          
+
+            <!--yes-->
+            <div style="display:inline; text-align:left;">
+              <label for="mixed-game-yes" style="text-align:right; display: inline;">Yes</label>
+              <input 
+                type="radio" 
+                id="mixed-game-yes"
+                class="radio-control"
+                name="mixed-game"
+                value=1
+                style="width:auto;
+                       padding:0px;
+                       margin-left:0px;"
+              ></input>
+            </div>
+          
+          
+            <!--no-->
+            <div style="display:inline; text-align:left;">
+              <label for="mixed-game-no" style="text-align:right; display:inline; margin-left:1px;">No</label>
+              <input 
+                type="radio" 
+                id="mixed-game-no"
+                class="radio-control"
+                name="mixed-game"
+                value=0
+                style="width:auto;
+                       padding:0px;
+                       margin-left:0px;
+                       float:none;
+                       "
+              ></input>
+            </div>
+          </div>
+
+
+          <!--afterlabel-->
+          <div class="afterLabel">Would you play with uneven teams? 4 versus 6, etc. Selecting 'Yes' may get you more games.</div>
+        </div><!--**UNEVEN TEAMS**-->
+
+
+        <!--**NET-HEIGHT-Preference**-->
+        <div class="formRow" name="park-settings-group"  data-dependent="false">
+          <label for="net-height-preference"
+                 style="position: relative;
+                        height: 40px;"
+          >Net Height Preference
+          </label>
+            <select id="net-height-preference"
+                    multiple
+                    class="select-control"
+                    size="3"
+            >
+            </select>
+          <div class="afterLabel">Do you prefer playing with higher or lower net heights? Select multiple. Note: This will only apply to certain parks as not all parks set their net heights accurately.</div>
+        </div>
+        <!--**Net Height Preference**-->
+
+
+
+        <!--**CAN YOU HOST**-->
+        <div class="formRow"
+          name="host-settings-group"
+          data-dependent="false"
+
+
+          <!--Column 1-->
+          <label>Can you host?</label>
+          
+
+          <!--Column 2-->   
+          <div class="grids"
+               style="display:grid;
+                      grid-template-rows: 30px 30px;
+                      ">          
+
+            <!--yes-->
+            <div style="display:inline; text-align:left;">
+              <label for="host-yes" style="text-align:right; width:auto; display: inline;">Yes</label>
+              <input 
+                type="radio" 
+                id="host-yes"
+                class="radio-control"
+                name="host-game"
+                value=1
+                style="width:auto;
+                       padding:0px;
+                       margin-left:0px;"
+              ></input>
+            </div>
+          
+          
+            <!--no-->
+            <div style="display:inline; text-align:left;">
+              <label for="host-no" style="width:auto; text-align:right; display:inline;margin-left:1px;">No</label>
+              <input 
+                type="radio" 
+                id="host-no"
+                class="radio-control"
+                name="host-game"
+                value=0
+                style="width:auto;
+                       padding:0px;
+                       margin-left:0px;
+                       float:none;
+                       "
+              ></input>
+            </div>
+          </div>
+
+          <!--afterlabel-->
+          <div class="afterLabel">Note: You may be auto-selected to be the host depending on if you have a ball, courtlines, and/or net.</div>
+        </div><!--**CAN YOU HOST**-->
+
+
+
+
+
+        <!--**HAS VOLLEYBALL?**-->
+        <div class="formRow" name="host-settings-group"  data-dependent="false">
+          
+          <label 
+                 for="has-volleyball"
+                 style="position: relative;
+                        height: 40px;"
+          >Can you bring a volleyball?
+          </label>
+            <select id="has-volleyball"
+                    multiple
+                    class="select-control"
+            >
+            </select>
+          <div class="afterLabel">Select Multiple.</div>
+        </div>
+        <!--**HAS VOLLEYBALL?**-->
+
+
+
+
+        <!--**HAS COURTLINES?**-->
+        <div class="formRow" name="host-settings-group"  data-dependent="true">
+          <label 
+                 for="has-courtlines"
+                 style="position: relative;
+                        height: 40px;"
+          >Can you bring courtlines?
+          </label>
+            <select id="has-courtlines"
+                    multiple
+                    class="select-control"
+                    size="6"
+            >
+            </select>
+          <div class="afterLabel">Select Multiple.</div>
+        </div>
+        <!--**HAS COURTLINES?**-->
+
+
+
+        <!--**HAS NET?**-->
+        <div class="formRow" name="host-settings-group"  data-dependent="true">
+          <label 
+                 for="has-net"
+                 style="position: relative;
+                        height: 40px;"
+          >Can you bring a net?
+          </label>
+            <select id="has-net"
+                    multiple
+                    class="select-control"
+                    size="2"
+            >
+            </select>
+          <div class="afterLabel">Select Multiple.</div>
+        </div>
+        <!--**HAS NET?**-->
+
+
+
+        <!--**SAVE BUTTON**-->
+        <div      
+          style="
+            margin-bottom: 15px;
+            border:1px solid rgba(0,0,0,.5);
+          "
+        >
+
+          <div class="" 
+               style="display:flex;"
+          >
+            <input id="save-button"
+                   class="save-button2"
+                   type="submit"
+                   value="Save"
+                   onclick="javascript:SaveAllEntries();"
+                   style="height:40px;
+                          width:70px;
+                          font-size:18px;
+                          font-family:Arial;
+                          margin:auto;
+                   "
+            >
+          </div>
+        </div>
+        <!--**SAVE BUTTON**-->
+
+
+
+
+    </div>
+<!--*******************************************************-->
+<!--**********************FORM*****************************-->
+<!--*******************************************************-->
+
+
+
+
+  </div><!--content-box-->
+
+  
+</body>
+<!--*******************************************************-->
+<!--*************************BODY**************************-->
+<!--*******************************************************-->
+
+
+<!--*******************************************************-->
+<!--************************SCRIPT*************************-->
+<!--*******************************************************-->
+<script>
+
+  //Variables for Phone Number and Phone Number Privacy Elements
+  var elPrivate = document.getElementById("private-phone");
+  var elHostOnly = document.getElementById("host-only-phone");
+  var elTeammatesOnly = document.getElementById("teammates-only-phone");
+  var elPublic = document.getElementById("public-phone");
+  var elPhoneNumber = document.getElementById("phone-number");
+  var elPhoneNumberPrivacyAfterText = document.getElementById("phone-number-privacy-after-text");
+
+  //Clears all Phone Number Privacy Radios
+  if(elPhoneNumber.value == ""){
+    elPrivate.checked = false;
+    elHostOnly.checked = false;
+    elTeammatesOnly.checked = false;
+    elPublic.checked = false;
+  }
+
+
+  //PRIVATE PHONE NUMBER
+  elPrivate.onclick = function(){
+    if(elPhoneNumber.value == ""){
+      elPhoneNumberPrivacyAfterText.innerHTML = "";
+      elPrivate.checked = false;
+      console.log(elPhoneNumberPrivacyAfterText);
+    }else{
+      elPhoneNumberPrivacyAfterText.innerHTML = 
+      elPrivate.value;
+    }
+  }
+
+
+  //HOST-ONLY PHONE NUMBER
+  elHostOnly.onclick = function(){
+    if(elPhoneNumber.value == ""){
+      elPhoneNumberPrivacyAfterText.innerHTML = "";
+      elHostOnly.checked = false;
+    }else{
+      elPhoneNumberPrivacyAfterText.innerHTML = 
+      elHostOnly.value;
+    }
+  }
+
+
+  //TEAMMATES PHONE NUMBER
+  elTeammatesOnly.onclick = function(){
+    if(elPhoneNumber.value == ""){
+      elPhoneNumberPrivacyAfterText.innerHTML = "";
+      elTeammatesOnly.checked = false;
+    }else{
+      elPhoneNumberPrivacyAfterText.innerHTML = elTeammatesOnly.value;
+    }
+  }
+
+
+  //PUBLIC PHONE NUMBER
+  elPublic.onclick = function(){
+    if(elPhoneNumber.value == ""){
+      elPhoneNumberPrivacyAfterText.innerHTML = "";
+      elPublic.checked = false;
+    }else{
+      elPhoneNumberPrivacyAfterText.innerHTML = 
+      elPublic.value;
+    }
+  }
+
+
+  //PHONE NUMBER PRIVACY
+  function displayRadioValue() {
+    elPhoneNumberPrivacyAfterText.innerHTML = "";
+    var ele = document.getElementsByName('phone-number-privacy-radio');
+    for(i = 0; i < ele.length; i++) {
+      if(ele[i].type="radio") {
+        if(ele[i].checked)
+          elPhoneNumberPrivacyAfterText.innerHTML += ele[i].value;
+        }
+      }
+  }
+///////////////////////////
+///////////////////////////
+
+  //Variables for Email and Email Privacy Elements
+  var elPrivateEmail = document.getElementById("private-email");
+  var elHostOnlyEmail = document.getElementById("host-only-email");
+  var elTeammatesOnlyEmail = document.getElementById("teammates-only-email");
+  var elPublicEmail = document.getElementById("public-email");
+  var elEmail = document.getElementById("email");
+  var elEmailPrivacyAfterText = document.getElementById("email-privacy-after-text");
+
+  //Clears all Email Privacy Radios
+  if(elEmail.value == ""){
+    elPrivateEmail.checked = false;
+    elHostOnlyEmail.checked = false;
+    elTeammatesOnlyEmail.checked = false;
+    elPublicEmail.checked = false;
+  }
+
+  //PRIVATE EMAIL
+  elPrivateEmail.onclick = function(){
+    if(elEmail.value == ""){
+      elEmailPrivacyAfterText.innerHTML = "Requires Email";
+      elPrivateEmail.checked = false;
+    }else{
+      elEmailPrivacyAfterText.innerHTML = 
+      elPrivateEmail.value;
+    }
+  }
+
+
+
+  //HOST-ONLY EMAIL
+  elHostOnlyEmail.onclick = function(){
+    if(elEmail.value == ""){
+      elEmailPrivacyAfterText.innerHTML = "Requires Email";
+      elHostOnlyEmail.checked = false;
+    }else{
+      elEmailPrivacyAfterText.innerHTML = 
+      elHostOnlyEmail.value;
+    }
+  }
+
+
+  //TEAMMATES EMAIL
+  elTeammatesOnlyEmail.onclick = function(){
+    if(elEmail.value == ""){
+      elEmailPrivacyAfterText.innerHTML = "Requires Email";
+      elTeammatesOnlyEmail.checked = false;
+    }else{
+      elEmailPrivacyAfterText.innerHTML = elTeammatesOnlyEmail.value;
+    }
+  }
+
+
+  //PUBLIC EMAIL
+  elPublicEmail.onclick = function(){
+    if(elEmail.value == ""){
+      elEmailPrivacyAfterText.innerHTML = "Requires Email";
+      elPublicEmail.checked = false;
+    }else{
+      elEmailPrivacyAfterText.innerHTML = 
+      elPublicEmail.value;
+    }
+  }
+
+
+  //Email PRIVACY
+  function displayRadioValueEmail() {
+    elEmailPrivacyAfterText.innerHTML = "Requires Email";
+    var eleEmail = document.getElementsByName('email-privacy-radio');
+    for(i = 0; i < eleEmail.length; i++) {
+      if(eleEmail[i].type="radio") {
+        if(eleEmail[i].checked)
+          elEmailPrivacyAfterText.innerHTML += eleEmail[i].value;
+        }
+      }
+  }
+
+
+
+//////////////////////////
+//////////////////////////
+//NAVIGATION AND SETTINGS FUNCTIONS
+//////////////////////////
+//////////////////////////
+
+  //ON-CLICK NAVIGATE TO MAIN PAGE
+  document.getElementById("main-page").onclick = function () {
+    location.href = "index.html";
+  };
+
+  //ON-CLICK NAVIGATE TO SIGN IN
+  document.getElementById("sign-out").onclick = function () {
+    location.href = "Sign-In.html";
+  };
+
+
+  //DEFAULT USER PROFILE SETTINGS VIEW
+  var allRows = document.querySelectorAll('.formRow');
+  document.getElementById("park-settings-header").className = "tabSelected";
+
+    allRows.forEach((item) => {
+      if(item.attributes.name.nodeValue !== "park-settings-group" || item.dataset.dependent === "true"){
+        item.style.display = "none";
+      }else{
+        item.style.display = "flex";
+      }
+    });
+
+    
+  //ON-CLICK PROFILE HEADER
+  document.getElementById("profile-settings-header").onclick = function () {
+    allRows.forEach((item) => {
+      if(item.attributes.name.nodeValue !== "profile-settings-group" || item.dataset.dependent === "true"){
+        item.style.display = "none";
+      }else{
+        item.style.display = "flex";
+      }
+    });
+    
+    //Highlight Header
+    document.getElementById("profile-settings-header").className = "tabSelected";
+    document.getElementById("park-settings-header").className = "tab";
+    document.getElementById("game-settings-header").className = "tab";
+    document.getElementById("host-settings-header").className = "tab";
+
+  };
+
+
+
+  //ON-CLICK PARK HEADER
+  document.getElementById("park-settings-header").onclick = function () {
+    allRows.forEach((item) => {
+      if(item.attributes.name.nodeValue !== "park-settings-group" || item.dataset.dependent === "true"){
+        item.style.display = "none";
+      }else{
+        item.style.display = "flex";
+      }
+    });
+    
+
+    //Highlight Header
+    document.getElementById("profile-settings-header").className = "tab";
+    document.getElementById("park-settings-header").className = "tabSelected";
+    document.getElementById("game-settings-header").className = "tab";
+    document.getElementById("host-settings-header").className = "tab";
+
+  };
+
+
+
+  //ON-CLICK GAME HEADER
+  document.getElementById("game-settings-header").onclick = function () {
+    allRows.forEach((item) => {
+      if(item.attributes.name.nodeValue !== "game-settings-group" || item.dataset.dependent === "true"){
+        item.style.display = "none";
+      }else{
+        item.style.display = "flex";
+      }
+    });
+    
+    document.getElementById("profile-settings-header").className = "tab";
+    document.getElementById("park-settings-header").className = "tab";
+    document.getElementById("game-settings-header").className = "tabSelected";
+    document.getElementById("host-settings-header").className = "tab";
+
+  };
+
+
+
+  //ON-CLICK HOST HEADER
+  document.getElementById("host-settings-header").onclick = function () {
+    allRows.forEach((item) => {
+      if(item.attributes.name.nodeValue !== "host-settings-group" || item.dataset.dependent === "true"){
+        item.style.display = "none";
+      }else{
+        item.style.display = "flex";
+      }
+    });
+    
+    //Highlight Header
+    document.getElementById("profile-settings-header").className = "tab";
+    document.getElementById("park-settings-header").className = "tab";
+    document.getElementById("game-settings-header").className = "tab";
+    document.getElementById("host-settings-header").className = "tabSelected";
+
+  };
+ 
+
+
+//////////////////////////
+//////////////////////////
+//PARK PREFERENCE FUNCTIONS
+//////////////////////////
+//////////////////////////
+
+
+  //LOAD PARKS LIST
+  function functionGenerateParkList(){
+
+    function courtLocations(item) {
+      initialValue += "<option>" + item + "</option>"
+    };
+
+    let initialValue = "";
+    var locations = [
+      "Delray Beach Beach Volleyball Courts", 
+      "Holiday Park Volleyball Courts",
+      "Deicke Park-volleyball court",
+      "Westwind Park-volleyball court",
+      "Pompano Beach Courts North",
+      "Pompano Beach Courts South",
+      "Tradewinds Park",
+      "Deerfield Beach Volleyball Courts",
+      "James A. Rutherford Park Volleyball Court",
+      "Riviera Beach Volleyball Courts",
+      "John Prince Volley Ball Court",
+      "Maddock Park-volleyball court",
+      "Anchorage Park Volleyball Court",
+      "Wellington Park",
+      "Village of Palm Springs Park",
+      "Lakewood Gardens Park",
+      "Meadows Park"
+     ];
+   locations.sort();
+   locations.forEach(courtLocations)
+   document.getElementById("park-preferences").innerHTML = initialValue;
+
+ }
+
+  //SELECT-DESELECT ALL PARKS
+  document.getElementById("select-all-parks").onclick = function () {
+    var select = document.getElementById('park-preferences');
+    var box = document.getElementById("select-all-parks");
+    var o = select.options[0]
+    if ( box.checked == true ){
+      for ( var i = 0, l = select.options.length, o; i < l; i++ ){
+        o = select.options[i];
+        o.selected = true;
+        select.scrollTo(0, 0);
+      }
+    }else{
+      for ( var i = 0, l = select.options.length, o; i < l; i++ ){
+        o = select.options[i];
+        o.selected = false;
+        select.scrollTo(0, 0);
+      }
+    } 
+
+  };
+
+
+  //SHOW HIDE ELEMENTS
+  function showHide(callingElementID, elementID,type){
+    if(type === "id"){
+      var x = document.getElementById(elementID);
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }else if(type === "name"){
+      var x = document.getElementsByName(elementID);
+      for(i = 0; i < x.length; i++){
+        if (x[i].style.display === "none") {
+          x[i].style.display = "block";
+        } else {
+          x[i].style.display = "none";
+        }
+      }
+    }
+  }
+
+
+//////////////////////////
+//////////////////////////
+//PLAYER-OPPONENT-TEAM SKILL FUNCTIONS
+//////////////////////////
+//////////////////////////
+
+
+  //LOAD SKILL LEVELS
+  function GenerateSkillLevelList(){
+    
+    function functionSkillLevel(item) {
+      //if(item === "C (Beginner)"){
+        //initialValue += "<option selected>" + item + "</option>"
+      //}else{
+        initialValue += "<option>" + item + "</option>"
+      //}
+    };
+
+    let initialValue = "";
+    var levels = [
+      "C (Beginner)",
+      "B (Lower-Intermediate)",
+      "BB (Upper-Intermediate)",
+      "A (Competitive)",
+      "AA (Expert)"
+    ];
+    levels.forEach(functionSkillLevel);
+    document.getElementById("player-skill-level").innerHTML = initialValue;
+    document.getElementById("opponent-skill-level").innerHTML = initialValue;
+    document.getElementById("team-skill-level").innerHTML = initialValue;
+  }
+
+
+//////////////////////////
+//////////////////////////
+//TEAM SIZE FUNCTIONS
+//////////////////////////
+//////////////////////////
+
+  //TEAM SIZE PREFERENCE
+  function GenerateTeamSizeList(){
+    
+    function functionTeamSize(item) {
+      //if(item === "6"){
+        //initialValue += "<option selected>" + item + "</option>"
+      //}else{
+        initialValue += "<option>" + item + "</option>"
+      //}
+    };
+
+    let initialValue = "";
+    var levels = [
+      "6",
+      "5",
+      "4",
+      "3",
+      "2"
+    ];
+    levels.forEach(functionTeamSize);
+    document.getElementById("team-size-preference").innerHTML = initialValue;
+  }
+
+
+//////////////////////////
+//////////////////////////
+//CO-ED FUNCTIONS
+//////////////////////////
+//////////////////////////
+
+  //CO-ED
+  function GenerateCOEDList(){
+    
+    function functionCOED(item) {
+        initialValue += "<option>" + item + "</option>"
+    };
+
+    let initialValue = "";
+    
+    var male = document.getElementById("male");
+    var female = document.getElementById("female");
+    var other = document.getElementById("other");
+ 
+    var levels = [];
+
+    if(male.checked){
+      levels = [
+        "Men",
+        "CO-ED"
+      ];
+    }else if(female.checked){
+      levels = [
+        "Female",
+        "CO-ED"
+      ];
+    }else if(other.checked){
+      levels = [
+        "CO-ED"
+      ];
+    };
+
+
+    levels.forEach(functionCOED);
+    document.getElementById("CO-ED").innerHTML = initialValue;
+  }
+
+
+//////////////////////////
+//////////////////////////
+//NET HEIGHT FUNCTIONS
+//////////////////////////
+//////////////////////////
+
+
+  //NET HEIGHT PREFERENCE
+  function GenerateNetHeightList(){
+    
+    function functionNetHeight(item) {
+      initialValue += "<option value=\"" + item + "\" title=\"" + item + "\">" + item + "</option>"
+    };
+
+    let initialValue = "";
+    var levels = [
+      "Mens (7 feet, 11 ⅝ inches)",
+      "Womens (7 feet, 4 ⅛ inches)",
+      "Youth (7 feet or lower)"
+    ];
+    levels.forEach(functionNetHeight);
+    document.getElementById("net-height-preference").innerHTML = initialValue;
+  }
+
+
+//////////////////////////
+//////////////////////////
+//INDOOR OUTDOOR PREFERENCE FUNCTIONS
+//////////////////////////
+//////////////////////////
+
+
+  //INDOOR OUTDOOR PREFERENCE FILL
+  function GenerateIndoorOutdoorList(){
+    
+    function functionIndoorOutdoor(item) {
+      if(item === "outdoor"){
+        initialValue += "<option selected>" + item + "</option>"
+      }else{
+        initialValue += "<option>" + item + "</option>"
+      }
+    };
+
+    let initialValue = "";
+    var levels = [
+      "Outdoor",
+      "Indoor"
+    ];
+    levels.forEach(functionIndoorOutdoor);
+    document.getElementById("indoor-outdoor-preference").innerHTML = initialValue;
+  }
+
+
+//////////////////////////
+//////////////////////////
+//HAS VOLLEYBALL FUNCTIONS
+//////////////////////////
+//////////////////////////
+
+  //HAS VOLLEYBALL?
+  function GenerateHasVolleyballList(){
+    
+    function functionHasVolleyball(item) {
+          initialValue += "<option value=\"" + item + "\" title=\"" + item + "\">" + item + "</option>"
+    };
+
+    let initialValue = "";
+    var options = [
+      "No",
+      "Indoor Ball",
+      "Outdoor Ball",
+      "I have one, but unsure if it's an indoor or outdoor ball"
+    ];
+    options.forEach(functionHasVolleyball);
+    document.getElementById("has-volleyball").innerHTML = initialValue;
+  }
+
+
+//////////////////////////
+//////////////////////////
+//HAS COURTLINES FUNCTIONS
+//////////////////////////
+//////////////////////////
+
+
+  //HAS COURTLINES?
+  function GenerateHasCourtlinesList(){
+    
+    function functionHasCourtlines(item) {
+          initialValue += "<option value=\"" + item + "\" title=\"" + item + "\">" + item + "</option>"
+    };
+
+    let initialValue = "";
+    var options = [
+      "No",
+      "2x2 (official size)",
+      "2x2 (recreational)",
+      "6x6 (official size)",
+      "6x6 (recreational)",
+      "I have courtlines, but I'm unsure of the size."
+    ];
+    options.forEach(functionHasCourtlines);
+    document.getElementById("has-courtlines").innerHTML = initialValue;
+  }
+
+
+//////////////////////////
+//////////////////////////
+//HAS NET FUNCTIONS
+//////////////////////////
+//////////////////////////
+
+
+  //HAS NET?
+  function GenerateHasNetList(){
+    
+    function functionHasNet(item) {
+          initialValue += "<option value=\"" + item + "\" title=\"" + item + "\">" + item + "</option>"
+    };
+
+    let initialValue = "";
+    var options = [
+      "Yes",
+      "No"
+    ];
+    options.forEach(functionHasNet);
+    document.getElementById("has-net").innerHTML = initialValue;
+  }
+
+
+//////////////////////////
+//////////////////////////
+//TURF FUNCTIONS
+//////////////////////////
+//////////////////////////
+
+
+  //TURF?
+  function GenerateTurfList(){
+    
+    function functionTurf(item) {
+          initialValue += "<option value=\"" + item + "\" title=\"" + item + "\">" + item + "</option>"
+    };
+
+    let initialValue = "";
+    var options = [
+      "Grass",
+      "Sand",
+      "Wood",
+      "Artificial Grass",
+      "Acrylic",
+      "Tartan"
+    ];
+    options.forEach(functionTurf);
+    document.getElementById("turf").innerHTML = initialValue;
+  }
+
+
+  //SELECT-DESELECT ALL TURF
+  document.getElementById("select-all-turf").onclick = function () {
+    var selectTurf = document.getElementById('turf');
+    var boxTurf = document.getElementById("select-all-turf");
+    var oTurf = selectTurf.options[0]
+    if ( boxTurf.checked == true ){
+      for ( var i = 0, l = selectTurf.options.length, oTurf; i < l; i++ ){
+        oTurf = selectTurf.options[i];
+        oTurf.selected = true;
+        selectTurf.scrollTo(0, 0);
+      }
+    }else{
+      for ( var i = 0, l = selectTurf.options.length, oTurf; i < l; i++ ){
+        oTurf = selectTurf.options[i];
+        oTurf.selected = false;
+        selectTurf.scrollTo(0, 0);
+      }
+    } 
+
+  };
+
+//////////////////////////
+//////////////////////////
+//EMAIL NOTIFICATION FUNCTIONS
+//////////////////////////
+//////////////////////////
+
+
+  //EMAIL NOTIFICATIONS?
+  function GenerateEmailNotificationsList(){
+    
+    function functionEmailNotifications(item) {
+          initialValue += "<option value=\"" + item + "\" title=\"" + item + "\">" + item + "</option>"
+    };
+
+    let initialValue = "";
+    var options = [
+      "None",
+      "Game Confirmations",
+      "Private Messages",
+      "New Chatroom Messages"
+    ];
+    options.forEach(functionEmailNotifications);
+    document.getElementById("email-notifications").innerHTML = initialValue;
+  }
+
+
+//////////////////////////
+//////////////////////////
+//PROGRAMMICALLIY ADD SAVE BUTTON FUNCTIONS
+//////////////////////////
+//////////////////////////
+
+function addSaveButton(){
+
+  //Loop through all "afterLabel" elements
+  var afterLabels = document.querySelectorAll('div[class="afterLabel"]')
+  afterLabels.forEach((item) => {
+
+    //Create New Element and place it after afterLabel Elements
+    var newInput = document.createElement("input");
+    item.appendChild(newInput);
+    item.parentNode.insertBefore(newInput, item.nextSibling);
+    
+    //Create and Apply new Content to newInput Element
+    var outerHTMLContent = '<div class="formRow" style="margin-left:5px;padding-left:0px;"><input type="submit" class="save-button" id="save-button" name="save-button" value="save"></div>'
+    newInput.outerHTML = outerHTMLContent;
+  });
+}
+
+
+
+function addEventListener(){
+// Wait for the page to finish loading
+  document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+   });
+}
+
+function toggleButtons(item){
+    var currentInputValue = '';
+    //console.log(item);
+
+    document.getElementsByClassName("form-control").focus = function(){
+      console.log('focus');
+      currentInputValue = $(this).val();
+    };
+
+    
+    document.getElementsByClassName("form-control").keypress = function(){
+      if(currentInputValue != $(this).val()){
+        console.log('keypress');
+        currentInputValue = $(this).val();
+      }
+    };
+
+
+    document.getElementsByClassName("form-control").blur = function(){
+      if(currentInputValue != $(this).val()){
+        console.log("blur");
+        currentInputValue = $(this).val();
+      }
+    };
+}
+
+
+//////////////////////////
+//////////////////////////
+//COST PREFERENCE FUNCTIONS
+//////////////////////////
+//////////////////////////
+
+
+    //COST PREFERENCE OUTER-BORDER
+    function CostFieldOnFocus(){
+      document.getElementById("outer-cost-field").style.border = "3px solid rgba(0, 0, 255, 0.5)";
+    }
+
+    function CostFieldOnBlur(){
+      console.log(document.activeElement.id);
+      //if(document.activeElement.id == "body"){
+        document.getElementById("outer-cost-field").style.border = "1px solid rgba(0, 0, 0, 0.5)";
+      //};
+    }
+
+    function SelectCostField(element){
+      console.log(element.id);
+      if(["body", "cost-field"].includes(document.activeElement.id)){
+        document.getElementById("cost-field").focus();
+        //console.log(document.activeElement.id);
+        CostFieldOnFocus();
+      }else{
+        document.getElementById("cost-field").focus();
+      }
+    }
+
+
+//////////////////////////
+//////////////////////////
+//MISC CSS FUNCTIONS
+//////////////////////////
+//////////////////////////
+
+
+    function ScrollbarColor(){
+      var allSelectElements = document.querySelectorAll('.select-control');
+      allSelectElements.forEach((item) => {
+        if(item.scrollHeight > turf.clientHeight){
+          //do nothing. Maybe add color later on.
+        }else{
+          //console.log(item.style)
+          item.style.scrollbarWidth = "none";
+          item.style.overflow = "hidden";
+        };
+      });
+    }
+
+    function rowBorders(){
+      var allRowElements = document.querySelectorAll('.formRow');
+      allRowElements.forEach((item) => {
+        item.style.border = "1px solid rgba(0, 0, 0, 0.5)";
+      });
+    }
+
+
+//////////////////////////
+//////////////////////////
+//EMAIL FUNCTIONS
+//////////////////////////
+//////////////////////////
+    
+    function EmailFunctions(element){
+      //Max Length of Email
+      if (element.value.length > element.maxLength){
+        element.value = element.value.slice(0, element.maxLength);
+      };
+                
+      //Show/Hide Email Privacy and notifications
+        if (element.value.length > 0){
+          document.getElementById("email-privacy").style.display="flex";
+          document.getElementById("email-notifications-row").style.display="flex";
+        }else{
+          document.getElementById("email-privacy").style.display="none"
+          document.getElementById("email-notifications-row").style.display="none"
+        }
+      
+      
+    }
+
+//////////////////////////
+//////////////////////////
+//HOME ADDRESS FUNCTIONS
+//////////////////////////
+//////////////////////////
+
+    function HomeAddressFunctions(element){
+      //Max Length
+      if (element.value.length > element.maxLength) element.value = element.value.slice(0, element.maxLength);
+
+      //Show/Hide Distance Preference
+      if (element.value.length > 0){
+        document.getElementById("distance-preference-row").style.display="flex";
+      }else{
+        document.getElementById("distance-preference-row").style.display="none"
+      }
+    }
+
+  //Used to verify address
+  //https://www.usps.com/business/web-tools-apis/address-information-api.htm#_Toc110511807
+
+//////////////////////////
+//////////////////////////
+//PHONE NUMBER FUNCTIONS
+//////////////////////////
+//////////////////////////
+
+    function PhoneNumberFunctions(element){
+      //Max Length
+      if (element.value.length > element.maxLength) element.value = element.value.slice(0, element.maxLength);
+
+      //Show/Hide Phone Number Privacy
+      if (element.value.length > 0){
+        document.getElementById("phone-number-privacy").style.display="flex";
+      }else{
+        document.getElementById("phone-number-privacy").style.display="none"
+      }
+    }
+
+  //VALIDATES PHONE NUMBER FIELD
+  function isNumberKey(evt){
+    var charCode = (evt.which) ? evt.which : evt.keyCode
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
+  }
+
+
+//////////////////////////
+//////////////////////////
+//COOKIES
+//////////////////////////
+//////////////////////////
+
+    //document.cookie = "firstname=John";
+    //let x = document.cookie;
+    //document.getElementById("first-name").value = x.split('=')[1];
+
+    //document.cookie = "lastname=Kelest";
+    //let y = document.cookie;
+    //document.getElementById("last-name").value = y.split('=')[1];
+
+    //let z = document.cookie;
+    //console.log(z.split(';')[1]);
+
+
+    function getCookie(name) {
+      function escape(s) { return s.replace(/([.*+?\^$(){}|\[\]\/\\])/g, '\\$1'); }
+    var match = document.cookie.match(RegExp('(?:^|;\\s*)' + escape(name) + '=([^;]*)'));
+      return match ? match[1] : null;
+    }
+
+
+//////////////////////////
+//////////////////////////
+//GATHER DATA
+//////////////////////////
+//////////////////////////
+
+    function SaveAllEntries(){
+
+      //Gather Data
+      var textboxInputs = document.querySelectorAll('.text-field, .password-field, #cost-field');
+      var radioInputs = document.querySelectorAll('.radio-control');
+      var checkboxInputs = document.querySelectorAll('.checkbox-control');
+      var selectInputs = document.querySelectorAll('.select-control');
+
+      //Array to store relevant data after filter
+      var newArray = new Array();
+
+
+      //Push form input data to newArray
+      textboxInputs.forEach((item) => {
+        newArray.push(item.id + "=" + item.value);
+      });
+
+
+      radioInputs.forEach((item) => {
+        newArray.push(item.id + "=" + item.checked);
+      });
+
+
+      checkboxInputs.forEach((item) => {
+          newArray.push(item.id + "=" + item.checked);
+      });
+
+
+      selectInputs.forEach((item) => {
+          //if(item.length > 1){
+              //console.log(item);
+            for(var i=0;i < item.length; i++){
+              //console.log(item.id + "[" + item[i].value + "]=" + item[i].selected);
+              newArray.push(item.id + "[" + item[i].value + "]=" + item[i].selected);
+            };
+          //}else{
+            //console.log(item.length);
+            //newArray.push("else=" + item.id + "=" + item.value);
+          //}
+      });
+
+
+      //Push to Cookie
+      newArray.forEach((item) => {
+        //console.log(item);
+        document.cookie = item;
+      });
+     
+      //console.log(document.cookie.split(";"));
+
+      for(var i = 0; i < document.cookie.length; i++){
+        //console.log(document.cookie.split("=")[1]);
+      }
+
+
+    }//End of SaveAllEntries
+
+
+    //console.log(document.getElementById("email-privacy").dataset.dependent);
+
+
+//////////////////////////
+//////////////////////////
+//RUN FUNCTIONS ON LOAD///
+//////////////////////////
+//////////////////////////
+
+  //ONLOAD MULTIPLE FUNCTIONS
+  window.onload=function(){
+    GenerateSkillLevelList();
+    functionGenerateParkList();
+    GenerateTeamSizeList();
+    GenerateNetHeightList();
+    GenerateIndoorOutdoorList();
+    displayRadioValue();
+    GenerateHasVolleyballList();
+    GenerateHasCourtlinesList();
+    GenerateHasNetList();
+    GenerateTurfList();
+    GenerateEmailNotificationsList();
+    displayRadioValueEmail();
+    //contentBoxPostion();
+    //addSaveButton();
+    addEventListener();
+    ScrollbarColor();
+    //rowBorders();
+    //WarnBeforeRefresh();
+    GenerateCOEDList();
+  }
+
+  function WarnBeforeRefresh(){
+    window.onbeforeunload = function(event){
+      return confirm("confirm refresh");
+    }
+  }
+
+
+
+</script>
+<!--*******************************************************-->
+<!--************************SCRIPT*************************-->
+<!--*******************************************************-->
+
+
+
+</html>

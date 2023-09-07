@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create Account</title>
+
+  <style>
+    html {background-color:transparent;}
+    body {background-color:transparent;}
+    h1 {font-size:40px; color: black;text-align: center;}
+    h2 {font-size:20px;text-align: center;}
+    p {color: black;}
+    input {color: black;}
+    br {display: block; margin: 3px 0;}
+
+
+  .column {
+
+  }
+
+  .sign-in-area {
+    margin: auto;
+    width: 300px;
+    height: fit-content;
+  }
+
+  </style>
+
+  <link rel="stylesheet" href="/css/CSS-Reset.css">
+
+</head>
+<body
+  style="background-image: url('file:///C:/Users/cjohn/Desktop/Game_Shortcuts/Javascript_Local/Volleyball-Sign-up/Images/Volleyball-Court-800x600.jpg');
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-size:cover;
+  height:100vh;
+  width:100vh;
+  margin:0;"
+>
+
+  <!--CONTENT-BOX-->
+  <div 
+    class="sign-in-area"
+    id="sign-in-area"
+    style="background-color:white;
+    opacity:1;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-right:-50%;
+    transform:translate(-50%,-50%);
+    border: 5px solid rgba(150, 0, 150, .10);
+  ">
+
+    <!--**PAGE HEADING**-->
+    <h1 style="margin:0">Create Account</h1>
+
+    <!--**EMAIL FIELD**-->
+    
+    <div 
+      id="emailDiv" 
+      style="width:300px;
+             height:60px;
+             position:relative;
+      ">
+      
+      <label for="emailField"
+        style="margin:auto;
+               display:block;
+               text-align:center"
+      >Enter Your Email:</label>
+      
+      <input 
+        type="text" 
+        id="emailField" 
+        name="email" 
+        value="" 
+        style="height:20px; 
+               width:170px;
+               text-align:left;
+               position:relative;
+               display:block;
+               margin:0 auto;
+               margin-top:10px;
+               
+      ">
+      <br>
+    </div><!--Email Text Field-->
+
+
+    <!--**CREATE ACCOUNT INPUT**-->
+    <div class="row" 
+         style="margin-top:10px;
+                margin-bottom:10px;
+                width:300px;
+                display:flex;
+                justify-content:space-between;
+    ">
+      
+
+      <div class="column" style="margin:auto;">
+        <input 
+          id="createAccount" 
+          type="submit" 
+          value="Create Account" 
+          style="width:120px;
+                 height:30px;"
+        >
+      </div>
+
+      
+      <div class="column" style="margin:auto;">
+        <input 
+          id="goBack" 
+          type="submit" 
+          value="Sign In" 
+          style="width:120px;
+                 height:30px;"
+        >
+      </div>
+      
+    </div><!--**CREATE ACCOUNT INPUT**-->
+
+
+  </div><!--sign-in-area-->
+
+</body>
+
+
+
+
+
+<script>
+  //PRESS ENTER KEY TO SIGN IN
+  document.addEventListener("keypress", function onEvent(event) {
+    if (event.key === "Enter") {
+        document.getElementById("createAccount").click();
+    }
+  });
+
+  
+  function CreateAccount() {
+    //console.log("Enter was pressed and Account Created.")
+  };
+
+  var email = document.getElementById('emailField');
+  email.focus();
+  email.select();
+
+  //function goBack() {
+    document.getElementById("goBack").onclick = function () {
+      location.href = "Sign-In.html";
+    };
+  //};
+
+</script>
+
+
+
+</html>
