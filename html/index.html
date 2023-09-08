@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mainpage</title>
+
+  <style>
+    html {background-color: transparent;}
+    body {background-color: transparent;}
+    h1 {font-size:40px; color: black;text-align: center; margin:0;padding:0;}
+    h2 {font-size:20px;text-align: center;}
+    p {color: black;}
+    input {color: black;}
+    br {display: block; margin: 3px 0;}
+
+  .quick-links-row {
+    overflow:initial;
+    min-height:30px;
+    height:fit-content;
+    text-align:center;
+    background-color:rgba(32.5, 28.6, 255, .30);
+  }
+
+  .quick-link-columns {
+    width: fit-content;
+    padding: 0px;
+    margin-left: .67em;
+    margin-right: .67em;
+    height: 100%;
+    display: inline-block;
+    border: none;
+    text-align:center; 
+    color:blue;
+    cursor:pointer;
+  }
+
+  .sign-in-area {
+    margin-top: 20px;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    height: fit-content;
+  }
+
+  .dateColumn {
+    float: left;
+    width: 200px;
+    padding: 0px;
+    height: 300px;
+  }
+
+  .dateRow:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  </style>
+ 
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <!--link rel="stylesheet" href="/resources/demos/style.css"-->
+  <link rel="stylesheet" href="/css/CSS-Reset.css">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  
+  <!--
+    Sources:
+      https://api.jqueryui.com/datepicker/
+
+   -->
+
+
+</head>
+
+
+<!--style="background-image: url('file:///C:/Users/cjohn/Desktop/Game_Shortcuts/Javascript_Local/Volleyball-Sign-up/Images/Volleyball-Court-800x600.jpg');-->
+<!---->
+<body
+  onLoad="functionGenerateParkList()";
+  style="background-image: url('file:///C:\Users\cjohn\Volleyball-Resources\Volleyball-Website\Volleyball-Court-800x600.jpg');
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-size:cover;
+  height:100vh;
+  width:100vh;
+  margin:0;"
+>
+
+  <!--CONTENT-BOX-->
+  <div 
+    class="sign-in-area"
+    id="sign-in-area"
+    overflow:hidden;
+    style="background-color:white;
+    opacity:1;
+    position:absolute;
+    top:80px;
+    left:50%;
+    margin-right:-50%;
+    transform:translate(-50%,-80px);
+    border: 5px solid rgba(150, 0, 150, .10);
+  ">
+
+
+      <!--**QUICK LINKS ROW**-->
+      <div class="quick-links-row">
+
+        <!--**PROFILE SETTINGS**-->
+        <div 
+          class="quick-link-columns" 
+          id="user-profile">
+          <u>Profile Settings</u>
+        </div>
+
+
+        <!--**UPCOMING GAMES**-->
+        <div 
+          class="quick-link-columns" 
+          onClick="showHide('')">
+         <u>Upcoming Games</u>
+        </div>
+
+
+        <!--**PARKS**-->
+        <div 
+          class="quick-link-columns" 
+          onClick="showHide('listOfParks')"
+          id="parksQuickLink" 
+          name="parksQuickLink">
+          <u>Parks</u>
+        </div>
+
+
+        <!--**DISCLAIMER**-->
+        <div 
+          class="quick-link-columns">
+          <u>Disclaimer</u>
+        </div>
+
+
+        <!--**SIGN-OUT**-->
+        <div
+          class="quick-link-columns"
+          id="sign-out"
+        >
+          <u>Sign-Out</u>
+        </div>
+
+      </div>
+      <!--**QUICK LINKS ROW**-->
+      
+
+
+      <!--**PAGE HEADING**-->
+      <h1>Beach Volleyball of South Florida</h1>
+
+
+
+      <!--**PAGE SUB-HEADING**-->
+      <h2 id="h2" name="h2" style="color:DimGray;">Welcome</h2>
+
+
+
+      <!--**LIST OF PARKS**-->
+      <div class="listOfParks" id="listOfParks" name="listOfParks" display="none"></div>
+
+
+
+      <div class="dateRow" style="display:none;">
+  
+        <div id="mapRow">
+          <div class="mapColumn" id="showMap">
+            <iframe
+              id="iframe"
+              src="https://www.google.com/maps/d/u/0/embed?mid=1Z9IM8SPM9RSAGCmlVvQ1UaVtlL826c4&ehbc=2E312F" 
+              width="640" 
+              height="480">
+            </iframe>
+          </div>
+        </div>
+
+        <br>
+  
+        <div class="calendar" id="calendar">
+          <div>
+            <button onclick="selectDates()">Select Dates</button>
+          </div>
+          <div class="dateColumn">
+            <div id="datepicker1"></div>
+          </div>
+          <div class="dateColumn">
+            <div id="datepicker2"></div>
+          </div>
+          <div class="dateColumn">
+            <div id="datepicker3"></div>
+          </div>
+        </div>
+      
+      </div><!--MAPROW-->
+
+      <div class="row"></div>
+
+  </div><!--sign-in-area-->
+</body>
+
+<script>
+
+    document.getElementById("user-profile").onclick = function () {
+      location.href = "User-Profile-View.html";
+    };
+
+  //ON-CLICK NAVIGATE TO SIGN-OUT
+  document.getElementById("sign-out").onclick = function () {
+    location.href = "Sign-In.html";
+  };
+
+
+  var dates = [];
+  
+
+
+  $( function() {
+    $( "#datepicker1" ).datepicker({
+      defaultDate: '-1m',
+      onSelect: function(date) {
+        console.log(date);
+        dates.push(date);
+      }
+    });
+  });
+
+
+
+  $( function() {
+    $( "#datepicker2" ).datepicker({
+      defaultDate: '0m',
+      onSelect: function(date) {
+        console.log(date);
+        dates.push(date);
+      }
+    });
+  });
+
+
+
+  $( function() {
+    $( "#datepicker3" ).datepicker({
+      defaultDate: '+1m',
+      onSelect: function(date) {
+        console.log(date);
+        dates.push(date);
+      }
+    });
+  });
+
+
+
+  function showHide(elementID){
+    var x = document.getElementById(elementID);
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  } 
+
+
+    function updateH2(item){
+      document.getElementById("h2").innerHTML = item;
+    };
+
+
+  function functionGenerateParkList(){
+
+    function courtLocations(item) {
+      initialValue += "<li><a onclick=\"updateH2(\'" + item + "\');\"><u>" + item + "</u></a></li>"
+    };
+
+    let initialValue = "Click Park for Details";
+    var locations = [
+      "Delray Beach Beach Volleyball Courts", 
+      "Holiday Park Volleyball Courts",
+      "Deicke Park-volleyball court",
+      "Westwind Park-volleyball court",
+      "Pompano Beach Courts North",
+      "Pompano Beach Courts South",
+      "Tradewinds Park",
+      "Deerfield Beach Volleyball Courts",
+      "James A. Rutherford Park Volleyball Court",
+      "Riviera Beach Volleyball Courts",
+      "John Prince Volley Ball Court",
+      "Maddock Park-volleyball court",
+      "Anchorage Park Volleyball Court",
+      "Wellington Park",
+      "Village of Palm Springs Park",
+      "Lakewood Gardens Park",
+      "Meadows Park"
+     ];
+   locations.sort();
+   locations.forEach(courtLocations)
+   document.getElementById("listOfParks").innerHTML = initialValue;
+   document.getElementById("listOfParks").style.display = "none";
+
+ }
+   
+
+</script>
+
+</html>

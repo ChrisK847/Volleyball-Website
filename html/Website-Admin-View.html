@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+<title>jQuery UI Datepicker - Display multiple months</title>
+
+<style>
+
+    body {background-color: powderblue;}
+    h1 {color: red;}
+    p {color: black;}
+    input {color: black;}
+
+.content-box {
+  box-sizing: content-box;
+}
+
+.dateColumn {
+  float: left;
+  width: 200px;
+  padding: 0px;
+  height: 300px;
+}
+
+.dateRow:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+</style>
+ 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  
+<!--
+Sources:
+https://api.jqueryui.com/datepicker/
+
+-->
+
+
+</head>
+
+
+
+
+
+<body onLoad="courtLocations()">
+
+<h1>Beach Volleyball of South Florida</h1>
+<h2 id="dynamicH2" style="color:DimGray;">Welcome</h2>
+
+<div>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" value="username">
+</div>
+
+<div>
+    <label for="pass">Password (8 characters minimum):</label>
+    <input type="password" id="pass" name="password"
+           minlength="8" required>
+</div>
+
+<input type="submit" value="Sign in">
+
+<br><br>
+
+<button onclick="showCourts()">Show/Hide Courts</button>
+<div class="listCourts" id="listCourts"></div>
+<br>
+
+<div class="dateRow">
+  <button onclick="myFunction()">Show/Hide Map</button>
+  <br>
+  
+  <div id="mapRow">
+    <div class="mapColumn" id="showMap" style="display:none">
+      <iframe
+        id="iframe"
+        src="https://www.google.com/maps/d/u/0/embed?mid=1Z9IM8SPM9RSAGCmlVvQ1UaVtlL826c4&ehbc=2E312F" 
+        width="640" 
+        height="480">
+      </iframe>
+    </div>
+  </div>
+
+  <br>
+  
+  <div class="calendar" id="calendar">
+  <div>
+    <button onclick="selectDates()">Select Dates</button>
+  </div>
+  <div class="dateColumn">
+      <div id="datepicker1"></div>
+  </div>
+  <div class="dateColumn">
+      <div id="datepicker2"></div>
+  </div>
+  <div class="dateColumn">
+      <div id="datepicker3"></div>
+  </div>
+  </div>
+
+</div>
+
+<div class="row">
+
+</div>
+
+</body>
+
+<script>
+  var dates = [];
+  
+  $( function() {
+    $( "#datepicker1" ).datepicker({
+      defaultDate: '-1m',
+      onSelect: function(date) {
+        console.log(date);
+        dates.push(date);
+      }
+    });
+  });
+
+  $( function() {
+    $( "#datepicker2" ).datepicker({
+      defaultDate: '0m',
+      onSelect: function(date) {
+        console.log(date);
+        dates.push(date);
+      }
+    });
+  });
+
+  $( function() {
+    $( "#datepicker3" ).datepicker({
+      defaultDate: '+1m',
+      onSelect: function(date) {
+        console.log(date);
+        dates.push(date);
+      }
+    });
+  });
+
+  function myFunction() {
+    var x = document.getElementById("showMap");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  };
+
+  function showCourts(){
+    var x = document.getElementById("listCourts");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  } 
+
+  function selectDates() {
+    
+  }
+
+  
+  
+  let initialValue = "Select Court for Dates";
+  var locations = [
+    "Delray Beach Beach Volleyball Courts", 
+    "Holiday Park Volleyball Courts",
+    "Deicke Park-volleyball court",
+    "Westwind Park-volleyball court",
+    "Pompano Beach Courts North",
+    "Pompano Beach Courts South",
+    "Tradewinds Park",
+    "Deerfield Beach Volleyball Courts",
+    "James A. Rutherford Park Volleyball Court",
+    "Riviera Beach Volleyball Courts",
+    "John Prince Volley Ball Court",
+    "Maddock Park-volleyball court",
+    "Anchorage Park Volleyball Court",
+    "Wellington Park",
+    "Village of Palm Springs Park",
+    "Lakewood Gardens Park",
+    "Meadows Park"
+  ];
+  locations.sort();
+  locations.forEach(courtLocations)
+  document.getElementById("listCourts").innerHTML = initialValue;
+  
+  function updateH2(item){
+    document.getElementById("dynamicH2").innerHTML = item;
+  };
+
+  function courtLocations(item) {
+    //initialValue += "<li><a href=\"\">" + item + "</a></li>"
+    //initialValue += "<li><a onclick=\"updateH2(\'" + item + "\');\">" + item + "</a></li>"
+    initialValue += "<li><a onclick=\"updateH2(\'" + item + "\');\"><u>" + item + "</u></a></li>"
+    //console.log("<li><p onclick=\"updateH2(\'" + item + "\');\">" + item + "</p></li>")
+  };
+
+
+
+
+</script>
+
+</html>
